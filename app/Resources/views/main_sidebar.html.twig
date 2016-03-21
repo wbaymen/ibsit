@@ -7,7 +7,7 @@
                <img src="{{ asset('bundles/app/images/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>{{app.user.username}}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -26,26 +26,14 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                    <i class="fa fa-dashboard"></i> <span>{{ 'app.module.title'|trans({}, 'AppBundle') }}</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>{{ 'app.module.questions'|trans({}, 'AppBundle') }}</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>{{ 'app.module.responses'|trans({}, 'AppBundle') }}</a></li>
                 </ul>
             </li>            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-pie-chart"></i>
-                    <span>Charts</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                    <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                    <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                    <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-                </ul>
-            </li>
+            
             </ul>
     </section>
     <!-- /.sidebar -->
