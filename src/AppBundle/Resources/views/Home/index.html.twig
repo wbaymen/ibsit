@@ -1,36 +1,51 @@
 {% extends "AppBundle::layout.html.twig" %}
 {% block main_content %}
-{{ parent() }}
-kjjhhh
-{#<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-    </head>
-    <body>
-        <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+    {{ parent() }}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">{{ 'app.module.title'|trans({}, 'AppBundle') }}</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <table id="data_table" class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Language</th>
+                            <th>Generated</th>
+                            <th> </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for questionnaire in questionnaires %}
+                            <tr class="odd gradeX">
+                                <td>{{ questionnaire.name }}</td>
+                                <td>{{ questionnaire.type}}</td>
+                                <td>{{ questionnaire.language.name }}</td>
+                                <td>{{ questionnaire.isgenerated }}</td>
+
+                                <td align="center"> <a href="{{path('questionnaire_edit',{'id':questionnaire.id})}}"><button style="width:60px; height:30px;" class="btn btn-block btn-info">EDIT</button></a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Language</th>
+                            <th>Generated</th>
+                            <th> </th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+                <a href="{{ path('questionnaire_new') }}">
+                    <button class="btn btn-block btn-warning"> New Questionnaire</button>
                 </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
+            </div><!-- /.box -->
         </div>
 
-        {% for type, messages in app.session.flashBag.all %}
-            {% for message in messages %}
-                <div class="{{ type }}">
-                    {{ message|trans({}, 'FOSUserBundle') }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-        </div>
-    </body>
-</html>#}
+    </div>
 {% endblock %}

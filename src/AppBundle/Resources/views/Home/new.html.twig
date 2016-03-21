@@ -1,0 +1,43 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block main_content %}
+{{ parent() }}
+
+
+<br />
+
+<div class="panel panel-primary " style="margin-top:50px;">
+<div class="panel-body">
+<form role="form" id="form1" action="{{path('questionnaire_new')}}"  method="post" {{ form_enctype(form) }} class="validate">
+
+        <div style="width:100%">
+            <div id="form1" style="float:left;width:50%;">
+
+
+                            {{ form_row(form.name,{'attr': {'data-validate': 'required'}}) }}
+
+                            {{ form_row(form.description) }}
+
+                            {{ form_row(form.type) }}
+
+                            {{ form_row(form.language) }}
+
+                            {{ form_row(form.welcomemessage) }}
+            </div>
+
+
+
+
+            <div style="clear:both;">
+                            {{ form_rest(form) }}
+            </div>
+        </div>
+         </form>
+
+
+	</div>
+
+</div>
+
+
+ {% endblock main_content %}

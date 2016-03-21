@@ -56,4 +56,106 @@ class Response
     private $question;
 
 
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return Response
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string 
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set attachement
+     *
+     * @param string $attachement
+     * @return Response
+     */
+    public function setAttachement($attachement)
+    {
+        $this->attachement = $attachement;
+
+        return $this;
+    }
+
+    /**
+     * Get attachement
+     *
+     * @return string 
+     */
+    public function getAttachement()
+    {
+        return $this->attachement;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set call
+     *
+     * @param \AppBundle\Entity\Call $call
+     * @return Response
+     */
+    public function setCall(\AppBundle\Entity\Call $call = null)
+    {
+        $this->call = $call;
+
+        return $this;
+    }
+
+    /**
+     * Get call
+     *
+     * @return \AppBundle\Entity\Call 
+     */
+    public function getCall()
+    {
+        return $this->call;
+    }
+
+    /**
+     * Set question
+     *
+     * @param \AppBundle\Entity\Question $question
+     * @return Response
+     */
+    public function setQuestion(\AppBundle\Entity\Question $question = null)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Get question
+     *
+     * @return \AppBundle\Entity\Question 
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Questionnaire" table="questionnaire">
+    <indexes>
+      <index name="IDX_B4D8065A82F1BAF4" columns="language_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="description" type="string" column="description" length="255" nullable="true"/>
+    <field name="welcomemessage" type="text" column="welcomeMessage" nullable="true"/>
+    <field name="attachement" type="string" column="attachement" length="255" nullable="true"/>
+    <field name="isgenerated" type="boolean" column="isGenerated" nullable="false"/>
+    <field name="type" type="string" column="type" length="5" nullable="false"/>
+    <field name="confirmationsms" type="text" column="confirmationSms" nullable="true"/>
+    <field name="finalmessage" type="text" column="finalMessage" nullable="true"/>
+    <field name="name" type="string" column="name" length="200" nullable="false"/>
+    <many-to-one field="language" target-entity="Language">
+      <join-columns>
+        <join-column name="language_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="" >
+        <body>
+            <trans-unit id="app.module.title">
+                <source>app.module.title</source>
+                <target>Questionnaire</target>
+            </trans-unit>     
+            <trans-unit id="app.module.questions">
+                <source>app.module.questions</source>
+                <target>Question</target>
+            </trans-unit>
+            <trans-unit id="app.module.responses">
+                <source>app.module.responses</source>
+                <target>Response</target>
+            </trans-unit>
+            <trans-unit id="app.module.questionnaires.list">
+                 <source>app.module.questionnaires.list</source>
+                 <target>List</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -7,8 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Question
  *
- * @ORM\Table(name="question", indexes={@ORM\Index(name="IDX_4F812B18CE07E8FF", columns={"questionnaire_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\QuestionRepository")
+ * @ORM\Table(name="question")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Question
 {
@@ -55,24 +56,19 @@ class Question
     private $mode;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Questionnaire
+     * @ORM\ManyToOne(targetEntity="Questionnaire", inversedBy="questionnaires", cascade={"persist"})
+     * @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id", nullable=true, onDelete="SET NULL")
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Questionnaire")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id")
-     * })
+     * @var Questionnaire $questionnaire
      */
     private $questionnaire;
-
 
 
     /**

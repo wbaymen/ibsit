@@ -29,4 +29,37 @@ class Condition
     private $conditionid;
 
 
+
+    /**
+     * Set desc
+     *
+     * @param string $desc
+     * @return Condition
+     */
+    public function setDesc($desc)
+    {
+        $this->desc = $desc;
+
+        return $this;
+    }
+
+    /**
+     * Get desc
+     *
+     * @return string 
+     */
+    public function getDesc()
+    {
+        return $this->desc;
+    }
+
+    /**
+     * Get conditionid
+     *
+     * @return integer 
+     */
+    public function getConditionid()
+    {
+        return $this->conditionid;
+    }
 }

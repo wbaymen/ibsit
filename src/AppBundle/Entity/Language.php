@@ -92,4 +92,11 @@ class Language
     {
         return $this->id;
     }
+
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+
+        return $this->name;
+    }
 }

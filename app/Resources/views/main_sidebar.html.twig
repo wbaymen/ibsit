@@ -25,12 +25,13 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="active treeview">
-                <a href="#">
+                <a href="{{ path('homepage') }}">
                     <i class="fa fa-dashboard"></i> <span>{{ 'app.module.title'|trans({}, 'AppBundle') }}</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>{{ 'app.module.questions'|trans({}, 'AppBundle') }}</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>{{ 'app.module.responses'|trans({}, 'AppBundle') }}</a></li>
+                    <li class="active"><a href="{{ path('homepage') }}"><i class="fa fa-circle-o"></i>{{ 'app.module.questionnaires.list'|trans({}, 'AppBundle') }}</a></li>
+                    <li class="active"><a href="{{ path('question_index') }}"><i class="fa fa-circle-o"></i>{{ 'app.module.questions'|trans({}, 'AppBundle') }}</a></li>
+                    <li><a href="{{ path('response_index') }}"><i class="fa fa-circle-o"></i>{{ 'app.module.responses'|trans({}, 'AppBundle') }}</a></li>
                 </ul>
             </li>            
             
