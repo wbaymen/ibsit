@@ -1,0 +1,91 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Questionnaire
+ *
+ * @ORM\Table(name="questionnaire", indexes={@ORM\Index(name="IDX_B4D8065A82F1BAF4", columns={"language_id"})})
+ * @ORM\Entity
+ */
+class Questionnaire
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="welcomeMessage", type="text", nullable=true)
+     */
+    private $welcomemessage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="attachement", type="string", length=255, nullable=true)
+     */
+    private $attachement;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isGenerated", type="boolean", nullable=false)
+     */
+    private $isgenerated;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=5, nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="confirmationSms", type="text", nullable=true)
+     */
+    private $confirmationsms;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="finalMessage", type="text", nullable=true)
+     */
+    private $finalmessage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=200, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Language
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Language")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="language_id", referencedColumnName="id")
+     * })
+     */
+    private $language;
+
+
+}

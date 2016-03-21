@@ -1,0 +1,84 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Call
+ *
+ * @ORM\Table(name="call", indexes={@ORM\Index(name="IDX_9439497EA5626C52", columns={"caller_id"})})
+ * @ORM\Entity
+ */
+class Call
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="callDate", type="datetime", nullable=true)
+     */
+    private $calldate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="assignementDate", type="datetime", nullable=true)
+     */
+    private $assignementdate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duration", type="integer", nullable=true)
+     */
+    private $duration;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="callNumber", type="string", length=255, nullable=true)
+     */
+    private $callnumber;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rate", type="integer", nullable=true)
+     */
+    private $rate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="text", nullable=true)
+     */
+    private $comment;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Caller
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Caller")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="caller_id", referencedColumnName="id")
+     * })
+     */
+    private $caller;
+
+
+}

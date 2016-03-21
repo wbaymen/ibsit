@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Response" table="response">
+    <indexes>
+      <index name="IDX_C70D69AD50A89B2C" columns="call_id"/>
+      <index name="IDX_C70D69AD1E27F6BF" columns="question_id"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="content" type="string" column="content" length="255" nullable="true"/>
+    <field name="attachement" type="string" column="attachement" length="255" nullable="true"/>
+    <many-to-one field="call" target-entity="Call">
+      <join-columns>
+        <join-column name="call_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="question" target-entity="Question">
+      <join-columns>
+        <join-column name="question_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

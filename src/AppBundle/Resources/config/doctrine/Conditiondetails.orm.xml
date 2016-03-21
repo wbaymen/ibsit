@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Conditiondetails" table="conditiondetails">
+    <indexes>
+      <index name="FK_01" columns="cid"/>
+      <index name="FK_03" columns="toQuest"/>
+      <index name="IDX_1C8BEE655492AEDA" columns="qid"/>
+    </indexes>
+    <id name="cid" association-key="true"/>
+    <id name="qid" association-key="true"/>
+    <field name="valmin" type="string" column="valMin" length="255" nullable="false"/>
+    <field name="valmax" type="string" column="valMax" length="255" nullable="false"/>
+    <one-to-one field="qid" target-entity="Question">
+      <join-columns>
+        <join-column name="qid" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="cid" target-entity="Condition">
+      <join-columns>
+        <join-column name="cid" referenced-column-name="ConditionId"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="toquest" target-entity="Question">
+      <join-columns>
+        <join-column name="toQuest" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

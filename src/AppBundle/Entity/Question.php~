@@ -1,0 +1,77 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Question
+ *
+ * @ORM\Table(name="question", indexes={@ORM\Index(name="IDX_4F812B18CE07E8FF", columns={"questionnaire_id"})})
+ * @ORM\Entity
+ */
+class Question
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="questionText", type="string", length=100, nullable=true)
+     */
+    private $questiontext;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="questionTextEn", type="string", length=100, nullable=true)
+     */
+    private $questiontexten;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="attachement", type="string", length=255, nullable=true)
+     */
+    private $attachement;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="responseType", type="boolean", nullable=true)
+     */
+    private $responsetype;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer", nullable=true)
+     */
+    private $position;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="mode", type="boolean", nullable=true)
+     */
+    private $mode;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Questionnaire
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Questionnaire")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id")
+     * })
+     */
+    private $questionnaire;
+
+
+}

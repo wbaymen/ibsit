@@ -1,0 +1,41 @@
+{% extends "::base.html.twig" %}
+ {% block content %}
+{{ parent() }}
+
+
+<div class="wrapper">
+
+                    {% block header %}
+                        {% include '::header.html.twig' %}
+                    {% endblock header %}
+                    {% block main_sidebar %}
+                        {% include '::main_sidebar.html.twig' %}
+                    {% endblock main_sidebar %}
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Dashboard
+                <small>Control panel</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Dashboard</li>
+            </ol>
+        </section>
+        <section class="content">
+                    {% block main_content %}
+
+                    {% endblock main_content %}
+            </section>
+
+        </div>
+                {% block footer %}
+                        {% include '::footer.html.twig' %}
+                {% endblock footer %}
+                {% block sidebar %}
+                        {% include '::sidebar.html.twig' %}
+                {% endblock sidebar %}
+        <div class="control-sidebar-bg"></div>  
+    </div> 
+{% endblock %}
